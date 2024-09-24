@@ -23,9 +23,10 @@ module.exports = function(RED) {
     this.source = n.source || "";
     this.message = n.message || "";
     this.priority =  Number( n.priority || 0);
-    this.apikey = n.apikey || undefined;
+    this.projectID = n.projectid || undefined;
+    this.clientEmail = n.clientemail || undefined;
+    this.privateKey = n.privatekey || undefined;
     this.registrationId = n.registrationId || undefined;
-    this.topic = n.topic || undefined;
     this.image1 = n.image1 || undefined;
     this.image2 = n.image2 || undefined;
     this.image3 = n.image3 || undefined;
@@ -41,9 +42,10 @@ module.exports = function(RED) {
       var title = msg.title || node.title || "";
       var priority = msg.priority || node.priority || 0;
       var source = msg.source || node.source || 0;
-      var apikey = msg.apikey || node.apikey || undefined;
+      var projectID = msg.projectid || node.projectid || undefined;
+      var clientEmail = msg.clientemail || node.projectid || undefined;
+      var privateKey = msg.privatekey || node.privatekey || undefined;
       var registrationId = msg.registrationId || node.registrationId || undefined;
-      var topic = msg.topic || node.topic || undefined;
       var url = msg.url || node.url || null;
       var image1 = msg.image1 || node.image1 || null;
       var image2 = msg.image2 || node.image2 || null;
@@ -54,58 +56,49 @@ module.exports = function(RED) {
       var nocache = msg.nocache || node.nocache || -1;
       var notify = msg.notify || node.notify || -1;
       
-      if (apikey == undefined || (registrationId == undefined && topic == undefined) || title == undefined) {
-        node.error("No APIkey, registrationId or topic or title set"); 
+      if (projectID == undefined || clientEmail == undefined || privateKey == undefined || registrationId == undefined || title == undefined) {
+        node.error("No projectId or clientEmail or privateKey or registrationId title set"); 
       } else {
         var message2Send = {
-          data: {
-            type: 'ntp_message',
-            title: new Buffer(title).toString('base64'),
-            priority:  priority,
-            speak: speak,
-            nocache: nocache,
-            notify: notify
-          }
+          type: 'ntp_message',
+          title: title,
+          priority:  priority,
+          speak: speak,
+          nocache: nocache,
+          notify: notify
         };  
         if (message != null) {
-          message2Send.data.message = new Buffer(message).toString('base64');
+          message2Send.message = message;
         }
         if (source != null) {
-          message2Send.data.source = new Buffer(source).toString('base64');
+          message2Send.source = source;
         }
         if (url != null) {
-          message2Send.data.url = new Buffer(url).toString('base64');
+          message2Send.url = url;
         }
         if (image1 != null) {
-          message2Send.data.image1 = new Buffer(image1).toString('base64');
+          message2Send.image1 = image1;
         }
         if (image2 != null) {
-          message2Send.data.image2 = new Buffer(image2).toString('base64');
+          message2Send.image2 = image2;
         }
         if (image3 != null) {
-          message2Send.data.image3 = new Buffer(image3).toString('base64');
+          message2Send.image3 = image3;
         }
         if (image4 != null) {
-          message2Send.data.image4 = new Buffer(image4).toString('base64');
+          message2Send.image4 = image4;
         }
         if (image5 != null) {
-          message2Send.data.image5 = new Buffer(image5).toString('base64');
+          message2Send.image5 = image5;
         }
-        if (registrationId == undefined) {
-          newtifrypro.sendMessageToTopic(message2Send, apikey, topic, function (err, data) {
-            if (err) {
-              node.warn("NPTopic error: " + err);
-            } 
-          });
-        } else {
-          var registrationIdsArray = [registrationId];
-          registrationIdsArray.push();
-          newtifrypro.sendMessage(message2Send, apikey, registrationIdsArray, function (err, data) {
-            if (err) {
-              node.warn("NP error: " + err);
-            } 
-          });
-        }
+        var registrationIdsArray = [registrationId];
+        registrationIdsArray.push();
+        newtifrypro.init2(projectID, clientEmail, privateKey);
+        newtifrypro.sendMessage(message2Send, registrationIdsArray, function (err, data) {
+          if (err) {
+            node.warn("NP error: " + err);
+          } 
+        });
       }
     });
   }

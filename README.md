@@ -17,4 +17,4 @@ See node-example.json for more informations
 Copyright and license
 ---------------------
 
-Copyright 2015 Arnaud LAURENT under [the Apache 2.0 license](LICENSE).
+Copyright 2015-2024 Arnaud LAURENT under [the Apache 2.0 license](LICENSE).

@@ -4,16 +4,20 @@
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
   <div class="form-row">
-    <label for="node-input-apikey"><i class="fa fa-flag"></i> API Key*</label>
-    <input type="text" id="node-input-apikey">
+    <label for="node-input-projectid" style="!important;"><i class="fa fa-flag"></i> Project ID*</label>
+    <input type="text" style="!important;" id="node-input-projectid">
+  </div>
+  <div class="form-row">
+    <label for="node-input-clientemail" style="!important;"><i class="fa fa-flag"></i> Client email*</label>
+    <input type="text" style="!important;" id="node-input-clientemail">
+  </div>
+  <div class="form-row">
+    <label for="node-input-privatekey" style="!important;"><i class="fa fa-flag"></i> Private key*</label>
+    <input type="text" style="!important;" id="node-input-privatekey">
   </div>
   <div class="form-row">
     <label for="node-input-registrationId" style="width: 100% !important;"><i class="fa fa-flag"></i> registrationId*</label>
     <input type="text" style="width: 100% !important;" id="node-input-registrationId">
-  </div>
-  <div class="form-row">
-    <label for="node-input-topic" style="width: 100% !important;"><i class="fa fa-flag"></i> or topic*</label>
-    <input type="text" style="width: 100% !important;" id="node-input-topic">
   </div>
   <br/>
   <div class="form-row">
@@ -102,7 +106,9 @@
       source: {value:""},
       message: {value:""},
       priority: {value:""},
-      apikey: {value:""},
+      clientID: {value:""},
+      clientEmail: {value:""},
+      privateKey: {value:""},
       registrationId: {value:""},
       topic: {value:""},
       notify: {value:"-1"},
