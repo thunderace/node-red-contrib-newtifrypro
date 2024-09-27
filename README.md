@@ -1,6 +1,6 @@
 node-red-contrib-newtifrypro
 =========================
-A <a href="http://nodered.org" target="_new">Node-RED</a> node to send messages via <a href="https://play.google.com/store/apps/details?id=com.newtifry.pro">NewtifryPro</a>.
+A <a href="http://nodered.org" target="_new">Node-RED</a> node to send messages via <a href="https://github.com/thunderace/NewtifryPro3">NewtifryPro</a>.
 
 ![screenshot](https://github.com/thunderace/node-red-contrib-newtifrypro/raw/master/screenshot.png)
 

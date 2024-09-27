@@ -3,7 +3,7 @@
     "version"       : "2.0.0",
     "description"   : "A Node-RED node to send messages via NewtifryPro",
     "dependencies"  : {
-        "newtifrypro" : "2.0.0"
+        "newtifrypro": "git+https://git@github.com/thunderace/NewtifryPro-node.git",
     },
     "repository" : {
         "type":"git",
@@ -12,6 +12,7 @@
     "license": "Apache",
     "keywords": [ "node-red", "newtifrypro" ],
     "node-red"      : {
+        "version": ">=2.0.0",
         "nodes"     : {
             "npro": "npro.js"
         }
