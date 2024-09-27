@@ -1,19 +1,22 @@
 {
-    "name"          : "node-red-contrib-newtifrypro",
-    "version"       : "2.0.0",
-    "description"   : "A Node-RED node to send messages via NewtifryPro",
-    "dependencies"  : {
-        "newtifrypro": "git+https://git@github.com/thunderace/NewtifryPro-node.git",
+    "name": "node-red-contrib-newtifrypro",
+    "version": "2.0.0",
+    "description": "A Node-RED node to send messages via NewtifryPro",
+    "dependencies": {
+        "newtifrypro": "git+https://git@github.com/thunderace/NewtifryPro-node.git"
     },
-    "repository" : {
-        "type":"git",
-        "url":"https://github.com/thunderace/node-red-contrib-newtifrypro"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thunderace/node-red-contrib-newtifrypro"
     },
     "license": "Apache",
-    "keywords": [ "node-red", "newtifrypro" ],
-    "node-red"      : {
+    "keywords": [
+        "node-red",
+        "newtifrypro"
+    ],
+    "node-red": {
         "version": ">=2.0.0",
-        "nodes"     : {
+        "nodes": {
             "npro": "npro.js"
         }
     },
