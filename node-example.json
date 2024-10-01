@@ -1,1 +1,87 @@
-[{"id":"eff98597.100678","type":"npro","name":"newtifrypro","title":"first try","source":"Node-RED","message":"First message","priority":"1","apikey":"YOUR APIKEY","registrationId":"YOUR REGISTRATIONID","x":716,"y":157,"z":"f2891a1a.0d76e8","wires":[]},{"id":"3732d438.c8cd2c","type":"inject","name":"on demand","topic":"","payload":"","payloadType":"date","repeat":"","crontab":"","once":false,"x":194,"y":143,"z":"f2891a1a.0d76e8","wires":[["a581d653.5a7e28"]]},{"id":"a581d653.5a7e28","type":"function","name":"test","func":"msg = {};\n// title is required here or defined in the npro node\nmsg.title = \"Testing\"; \n// APIKey is required here or defined in the npro node\n//msg.apikey = \"Your APIKEY\"; \n// registrationId is required here or defined in the npro node\n//msg.registrationId = \"Your registrationId\";\n// optional \nmsg.message = \"Hello Hrant This is a test\";\n// priority : \n//\t0 -> no priority\n//\t1 -> information\n//\t2 -> warning\n//\t3 -> alert\nmsg.priority = 0;\nmsg.source=\"Node-RED\";\nreturn msg;","outputs":1,"x":464,"y":157,"z":"f2891a1a.0d76e8","wires":[["eff98597.100678"]]}]
+[
+    {
+        "id": "2066602ed0f71517",
+        "type": "tab",
+        "label": "NewtifryPro3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3732d438.c8cd2c",
+        "type": "inject",
+        "z": "2066602ed0f71517",
+        "name": "on demand",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 308,
+        "y": 286,
+        "wires": [
+            [
+                "a581d653.5a7e28"
+            ]
+        ]
+    },
+    {
+        "id": "a581d653.5a7e28",
+        "type": "function",
+        "z": "2066602ed0f71517",
+        "name": "test",
+        "func": "msg = {};\n// title is required here or defined in the npro node\nmsg.title = \"Testing\"; \n// projectID is required here or defined in the npro node\n//msg.projectId = \"\"; \n// privateKey is required here or defined in the npro node\n//msg.privateKey = \"\";\n// clientEmail is required here or defined in the npro node\n//msg.clientEmail = \"\"\n// registrationId is required here or defined in the npro node\nmsg.registrationId = \"\";\n// optional \nmsg.message = \"Hello from node-red\";\n// priority : \n//\t0 -> no priority\n//\t1 -> information\n//\t2 -> warning\n//\t3 -> alert\nmsg.priority = 0;\nmsg.source=\"Node-RED\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 578,
+        "y": 300,
+        "wires": [
+            [
+                "e221676479603306"
+            ]
+        ]
+    },
+    {
+        "id": "e221676479603306",
+        "type": "npro",
+        "z": "2066602ed0f71517",
+        "name": "",
+        "title": "",
+        "source": "",
+        "message": "",
+        "priority": "",
+        "clientId": "",
+        "clientEmail": "",
+        "privateKey": "",
+        "registrationId": "",
+        "notify": "-1",
+        "speak": "-1",
+        "cache": "-1",
+        "url": "",
+        "image1": "",
+        "image2": "",
+        "image3": "",
+        "image4": "",
+        "image5": "",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    }
+]
