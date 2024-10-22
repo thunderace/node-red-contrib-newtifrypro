@@ -2,7 +2,7 @@
 =============================
 A <a href="http://nodered.org" target="_new">Node-RED</a> node to send messages to NewtifryProV3 android app <a href="https://github.com/thunderace/NewtifryPro3">NewtifryProV3</a>.
 
-
+**Important : You need to build your own NewtifryProV3 android app.**
 
 ![screenshot](https://github.com/thunderace/node-red-contrib-newtifrypro/raw/master/screenshot.png)
 
@@ -21,7 +21,7 @@ Fill the registrationId from NewtifryProV3 android app.
 
 ## Usage
 -----
-Uses NewtifryPro (NP) to push the **msg.message** and **msg.title** to an Android device that has NewtifryPro Android app installed.
+Uses Node-red to push the **msg.message** and **msg.title** to an Android device that has NewtifryProV3 Android app installed.
 See node-example.json for more informations
 
 ## Copyright and license
